@@ -85,6 +85,7 @@ td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-ali
   <div class="grp">Working the store</div>
   <a href="#editing">Editing any page</a>
   <a href="#admin">Products, plans and fees</a>
+  <a href="#create">Creating products</a>
   <a href="#feedback">Reporting feedback</a>
   <a href="#reference">Reference</a>
 </nav>
@@ -311,6 +312,42 @@ td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-ali
   </table>
   <div class="card warn"><span class="k">One rule to remember</span>
   Changing a plan's price or copy is always safe. Deleting products, editing the fee product, or renaming anything technical is not: ask Makro or Ztar first, it takes minutes to check.</div>
+</div>
+
+<div class="chapter" id="create">
+  <div class="eyebrow">Working the store</div>
+  <h2>Creating products</h2>
+  <p class="lead">Three recipes: a new plan, a new phone, a new accessory. For plans and phones the fastest and safest method is the same one we use: duplicate one that works, then change what differs.</p>
+
+  <h3>Create a new plan</h3>
+  <div class="steps">
+    <div><strong>Coordinate with Ztar first.</strong> Every plan the customer buys maps to a variant on Ztar's own plan product, so their systems can bill and fulfil it. If Ztar hasn't created the matching variant yet, the new plan has nothing to connect to. One message before you start saves the round trip.</div>
+    <div>In <a href="https://admin.shopify.com/store/7-eleven-17155/products" target="_blank">admin → Products</a>, open an existing plan (say, 5 GB plan) and press <strong>Duplicate</strong>, top right. Keep images ticked. The duplicate arrives as a draft with everything carried over: the right template, the right product type ("Plan page"), and all the plan settings.</div>
+    <div>Change the basics: title (for example "10 GB plan"), and the price on the variant.</div>
+    <div>Scroll to <strong>Metafields</strong> at the bottom of the product page and update: <em>Data allowance</em> (the line under the price, for example "10 GB at 4G speed"), <em>Included features</em> (the tick list), <em>Billing period</em> (monthly or annual), and make sure <em>Best deal</em> is off, since only one plan carries the flag. The <em>Ztar variant</em> metafield is the connection from step 1: pick the matching variant on the "Unlimited Talk &amp; Text Plan" product, or ask Makro to map it.</div>
+    <div>Under <strong>Collections</strong> on the right, add it to <strong>Monthly plans</strong> (or Annual plans). To control where it sits in the grid, open the collection and drag it into position, since the plan grid follows the collection's manual order.</div>
+    <div>Set status to <strong>Active</strong> and check the plans page: the new card should be there with its price, allowance and ticks, and adding it to the cart should pair the right 911 fee.</div>
+  </div>
+
+  <h3>Create a new phone</h3>
+  <div class="steps">
+    <div>Duplicate the existing phone product, or start fresh with <strong>Add product</strong>. Either way: title, description, and good photos (the first image is the collection card).</div>
+    <div><strong>Leave "Product type" empty</strong> for phones. A few special type names (plan, Plan page, Fees, SIM) switch on special cart behavior, so a phone should not carry any of them.</div>
+    <div>Colours are variants: under <strong>Variants</strong>, add an option called <strong>Color</strong> and list the colours. Each colour can have its own price, image and inventory.</div>
+    <div>Set the price and inventory per variant, and tick "Track quantity" so a sold-out colour shows as unavailable.</div>
+    <div>Add it to the <strong>Phones</strong> collection under Collections on the right, set status to <strong>Active</strong>, and open the phones page to see it. Its own page automatically offers the plan pairing and SIM option, that comes with the phone template.</div>
+  </div>
+
+  <h3>Create a new accessory</h3>
+  <div class="steps">
+    <div><strong>Add product</strong>: title, description, photos, price, inventory. No special settings, and again leave "Product type" empty.</div>
+    <div>Add it to the <strong>Accessories</strong> collection, set status to <strong>Active</strong>, and it appears on the accessories page.</div>
+  </div>
+
+  <div class="card warn"><span class="k">The one trap</span>
+  Product type is not a label here, it is wiring. "Plan page", "plan", "Fees" and "SIM" each trigger store logic (fee pairing, one-per-order rules, purchase locks). Never type those into a phone or accessory, and never remove them from a plan. When in doubt, duplicate something that already works.</div>
+  <div class="card know"><span class="k">A safe way to practice</span>
+  Create anything as a <strong>Draft</strong> first: drafts are invisible to customers. Use the product page's Preview to check it, then flip to Active when it looks right.</div>
 </div>
 
 <div class="chapter" id="feedback">
