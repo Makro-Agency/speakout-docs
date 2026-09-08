@@ -11,12 +11,20 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); color: var(--ink); background: var(--paper); font-size: 16.5px; line-height: 1.68; }
-.topbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; background: var(--ink); color: #fff; padding: 14px 28px; }
-.topbar .home { color: #fff; text-decoration: none; font-weight: 800; font-size: 16px; }
-.topbar .home span { font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 8px; font-size: 13px; }
-.topbar .contents { color: var(--green); text-decoration: none; font-weight: 700; font-size: 14px; }
-main { max-width: 860px; margin: 0 auto; padding: 44px 24px 60px; }
-footer { max-width: 860px; margin: 0 auto; padding: 20px 24px 60px; font-size: 12.5px; color: var(--ink-40); border-top: 1px solid var(--line); }
+.layout { display: grid; grid-template-columns: 272px 1fr; min-height: 100vh; }
+nav { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--ink); padding: 22px 0 48px; }
+nav .brand { display: block; padding: 0 20px 18px; border-bottom: 1px solid rgba(255,255,255,0.15); margin-bottom: 12px; text-decoration: none; }
+nav .logo-chip { display: block; background: #fff; border-radius: 10px; padding: 12px 14px; }
+nav .logo-chip img { display: block; width: 100%; height: auto; }
+nav .brand-s { display: block; margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); }
+nav .grp { font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 18px 20px 6px; }
+nav a:not(.brand) { display: block; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13.5px; padding: 6px 20px; border-left: 3px solid transparent; }
+nav a:not(.brand):hover { background: rgba(255,255,255,0.08); color: #fff; border-left-color: rgba(0,230,130,0.5); }
+nav a.active { background: rgba(43,0,255,0.35); color: #fff; border-left-color: var(--green); font-weight: 700; }
+.content { min-width: 0; }
+main { max-width: 860px; margin: 0 auto; padding: 44px 40px 60px; }
+footer { max-width: 860px; margin: 0 auto; padding: 20px 40px 60px; font-size: 12.5px; color: var(--ink-40); border-top: 1px solid var(--line); }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } nav { position: static; height: auto; } main, footer { padding-left: 20px; padding-right: 20px; } }
 footer a { color: var(--ink-60); }
 .eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
 h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 12px; }
@@ -62,14 +70,29 @@ td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-ali
 .pager .pn.next { margin-left: auto; }
 @media print { .topbar, .pager { display: none; } }
 </style></head><body>
-<header class="topbar"><a class="home" href="index.html">SpeakOut Wireless <span>Store Owner's Guide</span></a><a class="contents" href="index.html">All guides</a></header>
+<div class="layout">
+<nav>
+<a class="brand" href="index.html"><span class="logo-chip"><img src="assets/logo.svg" alt="SpeakOut Wireless by 7-Eleven"></span><span class="brand-s">Store Owner's Guide</span></a>
+<div class="grp">Start here</div><a href="how-it-works.html">How the store works</a><a href="getting-around.html">Getting around the editor</a><div class="grp">Page guides</div><a href="homepage.html">Homepage</a><a href="plans-page.html">Plans page</a><a href="plan-product-page.html">Plan product page</a><a href="phones.html">Phones</a><a href="accessories.html">Accessories</a><a href="deals.html">Deals</a><a href="cart.html">Cart and checkout</a><a href="navigation.html">Navigation and menus</a><a href="why-speakout.html">Why SpeakOut</a><a href="coverage.html">Coverage</a><a href="switch.html">Switch to SpeakOut</a><a href="help-faq.html">Help and FAQ</a><a href="policies.html">Policies</a><a href="activation.html">Activating a SIM</a><div class="grp">Working the catalog</div><a href="products-plans-fees.html">Products, plans and fees</a><a href="create-a-plan.html">Create a new plan</a><a href="create-phone-accessory.html">Create a phone or accessory</a><a href="prices-and-deals.html">Prices and deals</a><div class="grp">Testing and reference</div><a href="feedback.html">Reporting feedback</a><a href="reference.html">Reference</a>
+</nav>
+<div class="content">
 <main>
 <div class="eyebrow">7-Eleven SpeakOut Wireless</div>
 <h1>Store Owner's Guide</h1>
-<p class="lead">Everything about your new store: what each page does, how to edit it yourself in baby steps, how to add products, and how to report feedback during testing. Pick a guide below.</p>
-<h2 class="grp-h">Start here</h2><div class="cards"><a class="card-link" href="how-it-works.html"><span class="c-t">How the store works</span><span class="c-d">The five rules that run through every page. Read this first: once you know them, everything else in this guide makes sense.</span></a><a class="card-link" href="getting-around.html"><span class="c-t">Getting around the editor</span><span class="c-d">The one skill behind ninety percent of edits: opening the theme editor, finding the thing you want to change, and saving. Five minutes to learn, used everywhere in this guide.</span></a></div><h2 class="grp-h">Page guides</h2><div class="cards"><a class="card-link" href="homepage.html"><span class="c-t">Homepage</span><span class="c-d">The front door: hero, plan grid, annual promotion, this month's deal, trust points and reviews. Every part of it is editable without code.</span></a><a class="card-link" href="plans-page.html"><span class="c-t">Plans page</span><span class="c-d">The whole lineup on one page: province selector, this month's deal, six monthly plans, the annual plan, and the two buying paths.</span></a><a class="card-link" href="plan-product-page.html"><span class="c-t">Plan product page</span><span class="c-d">Where one plan gets configured before the cart: province, phone check, SIM choice, and live "what you pay today" math.</span></a><a class="card-link" href="phones.html"><span class="c-t">Phones</span><span class="c-d">The device listing with its bring-your-own-phone check band, and the phone page that pairs a device with a plan and SIM in one purchase.</span></a><a class="card-link" href="accessories.html"><span class="c-t">Accessories</span><span class="c-d">The straightforward one: a standard listing of accessory products. If you can edit a product, you can run this page.</span></a><a class="card-link" href="deals.html"><span class="c-t">Deals</span><span class="c-d">The offers page: hero, live deal cards, and notes. Built so marketing can launch and retire offers without a developer.</span></a><a class="card-link" href="cart.html"><span class="c-t">Cart and checkout</span><span class="c-d">Where the store's rules show themselves: the fee explains itself, one plan per order, and the phone-check gate that keeps a not-ready order from checking out.</span></a><a class="card-link" href="navigation.html"><span class="c-t">Navigation and menus</span><span class="c-d">The header, the mega menu, the announcement bars, the footer columns and the social icons: where each one is edited.</span></a><a class="card-link" href="why-speakout.html"><span class="c-t">Why SpeakOut</span><span class="c-d">The pitch page: the value story, reasons to choose SpeakOut, and paths into buying or activating.</span></a><a class="card-link" href="coverage.html"><span class="c-t">Coverage</span><span class="c-d">Answers "does it work where I live" and hands the customer on to the plans.</span></a><a class="card-link" href="switch.html"><span class="c-t">Switch to SpeakOut</span><span class="c-d">The keep-your-number page: trust points, feature cards, and a numbered walkthrough for moving over.</span></a><a class="card-link" href="help-faq.html"><span class="c-t">Help and FAQ</span><span class="c-d">Your complete support library: 109 questions in 17 collapsible categories, migrated word for word from the current site.</span></a><a class="card-link" href="policies.html"><span class="c-t">Policies</span><span class="c-d">The real legal texts, complete: the Privacy Notice and the Service Terms and Conditions. Edited like documents, not like designs.</span></a><a class="card-link" href="activation.html"><span class="c-t">Activating a SIM</span><span class="c-d">The step that turns a SIM into a working phone number: a two-page flow connected live to Ztar's activation service.</span></a></div><h2 class="grp-h">Working the catalog</h2><div class="cards"><a class="card-link" href="products-plans-fees.html"><span class="c-t">Products, plans and fees</span><span class="c-d">The catalog has three kinds of citizens. Two are yours to edit freely. One set is load-bearing: it makes the Ztar integration work.</span></a><a class="card-link" href="create-a-plan.html"><span class="c-t">Create a new plan</span><span class="c-d">The full recipe, from coordinating with Ztar to seeing the new card live on the plans page.</span></a><a class="card-link" href="create-phone-accessory.html"><span class="c-t">Create a phone or accessory</span><span class="c-d">Adding devices and accessories: normal Shopify products with two SpeakOut-specific rules to respect.</span></a><a class="card-link" href="prices-and-deals.html"><span class="c-t">Prices and deals</span><span class="c-d">The three routine marketing moves: change a price, move the Best Deal flag, and roll the deal of the month.</span></a></div><h2 class="grp-h">Testing and reference</h2><div class="cards"><a class="card-link" href="feedback.html"><span class="c-t">Reporting feedback</span><span class="c-d">During testing, report anything directly on the page where you see it: the report arrives with a screenshot and all the technical context attached.</span></a><a class="card-link" href="reference.html"><span class="c-t">Reference</span><span class="c-d">The lookup tables: every page address, who owns what, and the live connections to Ztar.</span></a></div>
+<p class="lead">Everything about your new store: what each page does, how to edit it yourself in baby steps, how to add plans, phones and accessories, and how to report feedback during testing.</p>
+<h2>How to use this guide</h2>
+<ul>
+<li><strong>New to the store?</strong> Start with <a href="how-it-works.html">How the store works</a>, then <a href="getting-around.html">Getting around the editor</a>. Twenty minutes, and the rest of the guide becomes easy.</li>
+<li><strong>Editing something?</strong> Pick the page in the menu on the left. Every guide has numbered steps and a link that opens the theme editor already on the right page.</li>
+<li><strong>Adding a product?</strong> The recipes are under Working the catalog: <a href="create-a-plan.html">a plan</a>, or <a href="create-phone-accessory.html">a phone or accessory</a>.</li>
+<li><strong>Testing the store?</strong> Read <a href="feedback.html">Reporting feedback</a> once, then report anything directly on the page where you see it.</li>
+</ul>
+<div class="card know"><span class="k">While in development</span>
+The store lives at <a href="https://7-eleven-17155.myshopify.com" target="_blank">7-eleven-17155.myshopify.com</a>, password <code>MakroxSpeakout</code>. Every live link in this guide opens in a new tab.</div>
 
 <div class="pager"></div>
 </main>
 <footer>Prepared by Makro · September 2026 · Store: <a href="https://7-eleven-17155.myshopify.com" target="_blank">7-eleven-17155.myshopify.com</a> (password MakroxSpeakout while in development)</footer>
+</div>
+</div>
 </body></html>

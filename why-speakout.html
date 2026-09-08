@@ -11,12 +11,20 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); color: var(--ink); background: var(--paper); font-size: 16.5px; line-height: 1.68; }
-.topbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; background: var(--ink); color: #fff; padding: 14px 28px; }
-.topbar .home { color: #fff; text-decoration: none; font-weight: 800; font-size: 16px; }
-.topbar .home span { font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 8px; font-size: 13px; }
-.topbar .contents { color: var(--green); text-decoration: none; font-weight: 700; font-size: 14px; }
-main { max-width: 860px; margin: 0 auto; padding: 44px 24px 60px; }
-footer { max-width: 860px; margin: 0 auto; padding: 20px 24px 60px; font-size: 12.5px; color: var(--ink-40); border-top: 1px solid var(--line); }
+.layout { display: grid; grid-template-columns: 272px 1fr; min-height: 100vh; }
+nav { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--ink); padding: 22px 0 48px; }
+nav .brand { display: block; padding: 0 20px 18px; border-bottom: 1px solid rgba(255,255,255,0.15); margin-bottom: 12px; text-decoration: none; }
+nav .logo-chip { display: block; background: #fff; border-radius: 10px; padding: 12px 14px; }
+nav .logo-chip img { display: block; width: 100%; height: auto; }
+nav .brand-s { display: block; margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); }
+nav .grp { font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 18px 20px 6px; }
+nav a:not(.brand) { display: block; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13.5px; padding: 6px 20px; border-left: 3px solid transparent; }
+nav a:not(.brand):hover { background: rgba(255,255,255,0.08); color: #fff; border-left-color: rgba(0,230,130,0.5); }
+nav a.active { background: rgba(43,0,255,0.35); color: #fff; border-left-color: var(--green); font-weight: 700; }
+.content { min-width: 0; }
+main { max-width: 860px; margin: 0 auto; padding: 44px 40px 60px; }
+footer { max-width: 860px; margin: 0 auto; padding: 20px 40px 60px; font-size: 12.5px; color: var(--ink-40); border-top: 1px solid var(--line); }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } nav { position: static; height: auto; } main, footer { padding-left: 20px; padding-right: 20px; } }
 footer a { color: var(--ink-60); }
 .eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
 h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 12px; }
@@ -62,7 +70,12 @@ td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-ali
 .pager .pn.next { margin-left: auto; }
 @media print { .topbar, .pager { display: none; } }
 </style></head><body>
-<header class="topbar"><a class="home" href="index.html">SpeakOut Wireless <span>Store Owner's Guide</span></a><a class="contents" href="index.html">All guides</a></header>
+<div class="layout">
+<nav>
+<a class="brand" href="index.html"><span class="logo-chip"><img src="assets/logo.svg" alt="SpeakOut Wireless by 7-Eleven"></span><span class="brand-s">Store Owner's Guide</span></a>
+<div class="grp">Start here</div><a href="how-it-works.html">How the store works</a><a href="getting-around.html">Getting around the editor</a><div class="grp">Page guides</div><a href="homepage.html">Homepage</a><a href="plans-page.html">Plans page</a><a href="plan-product-page.html">Plan product page</a><a href="phones.html">Phones</a><a href="accessories.html">Accessories</a><a href="deals.html">Deals</a><a href="cart.html">Cart and checkout</a><a href="navigation.html">Navigation and menus</a><a class="active" href="why-speakout.html">Why SpeakOut</a><a href="coverage.html">Coverage</a><a href="switch.html">Switch to SpeakOut</a><a href="help-faq.html">Help and FAQ</a><a href="policies.html">Policies</a><a href="activation.html">Activating a SIM</a><div class="grp">Working the catalog</div><a href="products-plans-fees.html">Products, plans and fees</a><a href="create-a-plan.html">Create a new plan</a><a href="create-phone-accessory.html">Create a phone or accessory</a><a href="prices-and-deals.html">Prices and deals</a><div class="grp">Testing and reference</div><a href="feedback.html">Reporting feedback</a><a href="reference.html">Reference</a>
+</nav>
+<div class="content">
 <main><div class="eyebrow">Page guides</div><h1>Why SpeakOut</h1><p class="lead">The pitch page: the value story, reasons to choose SpeakOut, and paths into buying or activating.</p><p class="livelink"><a href="https://7-eleven-17155.myshopify.com/pages/why-speakout-wireless" target="_blank">Open the live page &nearr;</a></p><div class="shot capped"><img src="shots/why.jpg" alt="Why SpeakOut" loading="lazy"></div><h2>What's on it</h2>
 <ul>
   <li><strong>Hero</strong> with heading and two buttons.</li>
@@ -81,4 +94,6 @@ td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-ali
 <div class="pager"><a class="pn prev" href="navigation.html">&larr; Navigation and menus</a><a class="pn next" href="coverage.html">Coverage &rarr;</a></div>
 </main>
 <footer>Prepared by Makro · September 2026 · Store: <a href="https://7-eleven-17155.myshopify.com" target="_blank">7-eleven-17155.myshopify.com</a> (password MakroxSpeakout while in development)</footer>
+</div>
+</div>
 </body></html>
