@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage · SpeakOut Store Owner's Guide</title>
+<style>:root {
+  --ink: #090909; --ink-60: rgba(9,9,9,0.62); --ink-40: rgba(9,9,9,0.4);
+  --paper: #ffffff; --grey: #f7f7f7; --line: rgba(9,9,9,0.12);
+  --blue: #2b00ff; --green: #00e682; --red: #eb0f2a; --amber: #b45309;
+  --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Consolas, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--ink); background: var(--paper); font-size: 16.5px; line-height: 1.68; }
+.topbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; background: var(--ink); color: #fff; padding: 14px 28px; }
+.topbar .home { color: #fff; text-decoration: none; font-weight: 800; font-size: 16px; }
+.topbar .home span { font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 8px; font-size: 13px; }
+.topbar .contents { color: var(--green); text-decoration: none; font-weight: 700; font-size: 14px; }
+main { max-width: 860px; margin: 0 auto; padding: 44px 24px 60px; }
+footer { max-width: 860px; margin: 0 auto; padding: 20px 24px 60px; font-size: 12.5px; color: var(--ink-40); border-top: 1px solid var(--line); }
+footer a { color: var(--ink-60); }
+.eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
+h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 12px; }
+h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; margin: 40px 0 10px; }
+h2.grp-h { margin-top: 44px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+h3 { font-size: 17px; font-weight: 700; margin: 26px 0 8px; }
+p { margin: 10px 0; }
+.lead { font-size: 18px; color: var(--ink-60); }
+.livelink { margin: 4px 0 0; font-weight: 700; }
+ul, ol { margin: 10px 0 10px 24px; }
+li { margin: 6px 0; }
+a { color: var(--blue); }
+.shot { margin: 24px 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 8px 28px rgba(9,9,9,0.08); }
+.shot img { width: 100%; display: block; }
+.shot.capped img { max-height: 640px; object-fit: cover; object-position: top; }
+.shot-cap { font-size: 12.5px; color: var(--ink-40); padding: 8px 14px; background: var(--grey); border-top: 1px solid var(--line); }
+.card { background: var(--grey); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+.card .k { font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
+.card.edit .k { color: var(--blue); }
+.card.know .k { color: var(--amber); }
+.card.warn { background: #fdf0f1; border: 1px solid rgba(235,15,42,0.25); }
+.card.warn .k { color: var(--red); }
+code { font-family: var(--mono); font-size: 0.85em; background: rgba(9,9,9,0.07); padding: 1px 6px; border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px; }
+th { text-align: left; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-40); padding: 8px 12px 8px 0; border-bottom: 2px solid var(--ink); }
+td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.steps { counter-reset: st; margin: 16px 0; }
+.steps > div { position: relative; padding: 12px 0 12px 46px; border-bottom: 1px dashed var(--line); counter-increment: st; }
+.steps > div::before { content: counter(st); position: absolute; left: 0; top: 12px; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+.pill.ok { background: rgba(0,230,130,0.18); color: #067347; }
+.pill.no { background: rgba(235,15,42,0.12); color: var(--red); }
+.flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0; }
+.flow .n { background: var(--ink); color: #fff; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; }
+.flow .a { color: var(--ink-40); font-size: 18px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: 16px 0 8px; }
+.card-link { display: flex; flex-direction: column; gap: 6px; background: var(--grey); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; text-decoration: none; color: var(--ink); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.card-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(9,9,9,0.1); border-color: var(--blue); }
+.card-link .c-t { font-weight: 800; font-size: 15.5px; }
+.card-link .c-d { font-size: 13px; color: var(--ink-60); line-height: 1.45; }
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 56px; border-top: 1px solid var(--line); padding-top: 18px; }
+.pager .pn { text-decoration: none; font-weight: 700; font-size: 14px; color: var(--blue); }
+.pager .pn.next { margin-left: auto; }
+@media print { .topbar, .pager { display: none; } }
+</style></head><body>
+<header class="topbar"><a class="home" href="index.html">SpeakOut Wireless <span>Store Owner's Guide</span></a><a class="contents" href="index.html">All guides</a></header>
+<main><div class="eyebrow">Page guides</div><h1>Homepage</h1><p class="lead">The front door: hero, plan grid, annual promotion, this month's deal, trust points and reviews. Every part of it is editable without code.</p><p class="livelink"><a href="https://7-eleven-17155.myshopify.com/" target="_blank">Open the live page &nearr;</a></p><div class="shot capped"><img src="shots/home.jpg" alt="Homepage" loading="lazy"></div><h2>What's on it</h2>
+<ul>
+  <li><strong>Hero</strong> ("Wireless made simple"): image or video background, heading, and two buttons.</li>
+  <li><strong>Plan grid:</strong> the monthly plans, pulled live from the Monthly plans collection. Change a plan's price in the catalog and this updates by itself.</li>
+  <li><strong>Annual band:</strong> the annual plan promotion, fed by the Annual plans collection.</li>
+  <li><strong>Deal of the month bar</strong> (top of page) and the <strong>offer band</strong>: pure text and link settings.</li>
+  <li><strong>Why SpeakOut reasons:</strong> icon cards with heading and body per card.</li>
+  <li><strong>Buy in store band:</strong> the dark band pointing customers to a 7-Eleven, with step text and buttons.</li>
+  <li><strong>Reviews:</strong> a carousel of customer quotes. Currently placeholder text, waiting for real quotes.</li>
+  <li><strong>Footer:</strong> menus, social icons, legal links. Edited via menus, not the page (see <a href="navigation.html">Navigation and menus</a>).</li>
+</ul>
+<h2>Edit it, step by step</h2>
+<div class="steps">
+  <div><a href="https://admin.shopify.com/store/7-eleven-17155/themes/159360614585/editor" target="_blank">Open the editor on the homepage</a> (it opens on Home page by default).</div>
+  <div><strong>Change the hero:</strong> click the big top section. On the right you'll see the slide's image picker, the heading and text fields, and the two button label and link fields. To use a video instead of an image, the same panel offers a video setting. Type, pick, Save.</div>
+  <div><strong>Change the deal bar text:</strong> click the black bar at the very top. Edit its message and the "See deals" link in the panel.</div>
+  <div><strong>Change which plans show:</strong> click the plan grid section. The panel's <strong>Plans collection</strong> setting decides which collection feeds it. You'll rarely change this; to change the plans themselves, edit the products (see <a href="create-a-plan.html">Create a new plan</a>).</div>
+  <div><strong>Edit a "why" reason card:</strong> in the left panel find the SpeakOut Why Reasons section, open it, and click one of its blocks. Each card has <strong>Heading</strong>, <strong>Body text</strong> and an <strong>Icon image</strong> setting.</div>
+  <div><strong>Replace the reviews:</strong> click the Testimonials section, then a review block. Each has <strong>Text</strong>, <strong>Author name</strong> and <strong>Author position</strong> fields, plus a star toggle. Replace the placeholder quotes with real ones as they come in.</div>
+  <div>Press <strong>Save</strong>. Open the homepage in a normal tab and confirm it looks right.</div>
+</div>
+<div class="card know"><span class="k">Good to know</span>
+The reviews carousel supports trackpad swiping as well as its arrows. And the hero looks best with images at least 1800 pixels wide; smaller images will look stretched.</div>
+<div class="pager"><a class="pn prev" href="getting-around.html">&larr; Getting around the editor</a><a class="pn next" href="plans-page.html">Plans page &rarr;</a></div>
+</main>
+<footer>Prepared by Makro · September 2026 · Store: <a href="https://7-eleven-17155.myshopify.com" target="_blank">7-eleven-17155.myshopify.com</a> (password MakroxSpeakout while in development)</footer>
+</body></html>

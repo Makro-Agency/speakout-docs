@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switch to SpeakOut · SpeakOut Store Owner's Guide</title>
+<style>:root {
+  --ink: #090909; --ink-60: rgba(9,9,9,0.62); --ink-40: rgba(9,9,9,0.4);
+  --paper: #ffffff; --grey: #f7f7f7; --line: rgba(9,9,9,0.12);
+  --blue: #2b00ff; --green: #00e682; --red: #eb0f2a; --amber: #b45309;
+  --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Consolas, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--ink); background: var(--paper); font-size: 16.5px; line-height: 1.68; }
+.topbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; background: var(--ink); color: #fff; padding: 14px 28px; }
+.topbar .home { color: #fff; text-decoration: none; font-weight: 800; font-size: 16px; }
+.topbar .home span { font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 8px; font-size: 13px; }
+.topbar .contents { color: var(--green); text-decoration: none; font-weight: 700; font-size: 14px; }
+main { max-width: 860px; margin: 0 auto; padding: 44px 24px 60px; }
+footer { max-width: 860px; margin: 0 auto; padding: 20px 24px 60px; font-size: 12.5px; color: var(--ink-40); border-top: 1px solid var(--line); }
+footer a { color: var(--ink-60); }
+.eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
+h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 12px; }
+h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; margin: 40px 0 10px; }
+h2.grp-h { margin-top: 44px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+h3 { font-size: 17px; font-weight: 700; margin: 26px 0 8px; }
+p { margin: 10px 0; }
+.lead { font-size: 18px; color: var(--ink-60); }
+.livelink { margin: 4px 0 0; font-weight: 700; }
+ul, ol { margin: 10px 0 10px 24px; }
+li { margin: 6px 0; }
+a { color: var(--blue); }
+.shot { margin: 24px 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 8px 28px rgba(9,9,9,0.08); }
+.shot img { width: 100%; display: block; }
+.shot.capped img { max-height: 640px; object-fit: cover; object-position: top; }
+.shot-cap { font-size: 12.5px; color: var(--ink-40); padding: 8px 14px; background: var(--grey); border-top: 1px solid var(--line); }
+.card { background: var(--grey); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+.card .k { font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
+.card.edit .k { color: var(--blue); }
+.card.know .k { color: var(--amber); }
+.card.warn { background: #fdf0f1; border: 1px solid rgba(235,15,42,0.25); }
+.card.warn .k { color: var(--red); }
+code { font-family: var(--mono); font-size: 0.85em; background: rgba(9,9,9,0.07); padding: 1px 6px; border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px; }
+th { text-align: left; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-40); padding: 8px 12px 8px 0; border-bottom: 2px solid var(--ink); }
+td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.steps { counter-reset: st; margin: 16px 0; }
+.steps > div { position: relative; padding: 12px 0 12px 46px; border-bottom: 1px dashed var(--line); counter-increment: st; }
+.steps > div::before { content: counter(st); position: absolute; left: 0; top: 12px; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+.pill.ok { background: rgba(0,230,130,0.18); color: #067347; }
+.pill.no { background: rgba(235,15,42,0.12); color: var(--red); }
+.flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0; }
+.flow .n { background: var(--ink); color: #fff; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; }
+.flow .a { color: var(--ink-40); font-size: 18px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: 16px 0 8px; }
+.card-link { display: flex; flex-direction: column; gap: 6px; background: var(--grey); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; text-decoration: none; color: var(--ink); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.card-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(9,9,9,0.1); border-color: var(--blue); }
+.card-link .c-t { font-weight: 800; font-size: 15.5px; }
+.card-link .c-d { font-size: 13px; color: var(--ink-60); line-height: 1.45; }
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 56px; border-top: 1px solid var(--line); padding-top: 18px; }
+.pager .pn { text-decoration: none; font-weight: 700; font-size: 14px; color: var(--blue); }
+.pager .pn.next { margin-left: auto; }
+@media print { .topbar, .pager { display: none; } }
+</style></head><body>
+<header class="topbar"><a class="home" href="index.html">SpeakOut Wireless <span>Store Owner's Guide</span></a><a class="contents" href="index.html">All guides</a></header>
+<main><div class="eyebrow">Page guides</div><h1>Switch to SpeakOut</h1><p class="lead">The keep-your-number page: trust points, feature cards, and a numbered walkthrough for moving over.</p><p class="livelink"><a href="https://7-eleven-17155.myshopify.com/pages/switch" target="_blank">Open the live page &nearr;</a></p><div class="shot capped"><img src="shots/switch.jpg" alt="Switch to SpeakOut" loading="lazy"></div><h2>What's on it</h2>
+<ul>
+  <li><strong>Split hero:</strong> intro copy with trust ticks on one side, the numbered steps card with a full-width button on the other.</li>
+  <li><strong>Three feature cards</strong> under the hero.</li>
+</ul>
+<h2>Edit it, step by step</h2>
+<div class="steps">
+  <div><a href="https://admin.shopify.com/store/7-eleven-17155/themes/159360614585/editor?previewPath=/pages/switch" target="_blank">Open the editor on this page</a>.</div>
+  <div>Click the hero: its panel carries the intro fields, the tick lines, the numbered step texts and the button.</div>
+  <div>Click a feature card to edit its heading and body.</div>
+  <div>Save and check the live page.</div>
+</div>
+<div class="card know"><span class="k">Good to know</span>
+The actual number transfer (porting) happens during activation and with the carrier, not on this page: this page only explains it. Keep its steps in sync with the real process Ztar runs.</div>
+<div class="pager"><a class="pn prev" href="coverage.html">&larr; Coverage</a><a class="pn next" href="help-faq.html">Help and FAQ &rarr;</a></div>
+</main>
+<footer>Prepared by Makro · September 2026 · Store: <a href="https://7-eleven-17155.myshopify.com" target="_blank">7-eleven-17155.myshopify.com</a> (password MakroxSpeakout while in development)</footer>
+</body></html>
